@@ -1,49 +1,35 @@
 const Web3 = require('web3')
 const resolver = require('./resolver.js')
 
-// var isEthDomain = function(url) {
-//   let index = url.lastIndexOf('.')
-//   let tld = url.substring(index + 1, url.length - 1)
-//   return tld === "eth"
-// }
-
-var resolve = function(url) {
-  console.log("resolvable url: " + url)
-  chrome.tabs.getSelected(null, (tab) => {
-    console.log(url)
-    resolver.resolve(url)
-    .then((ipfsHash) => {
-      console.log("IPFS hash: " + ipfsHash)
-      chrome.tabs.update(tab.id, {url: "https://gateway.ipfs.io/ipfs/" + ipfsHash})
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  })
-}
-
-// chrome.webNavigation.onBeforeNavigate.addListener((details) => {
-//   if (details.url) {
-//     query = queryString.parse(details.url)
-//     keys = Object.keys(query)
-//     keys.forEach((key) => {
-//       if (isEthDomain(query[key])) {
-//         resolve(query[key])
-//       }
-//     })
-//   }
-// }, {urls: ["<all_urls>"]})
-
+// On *.eth entered into search bar
 chrome.webRequest.onBeforeRequest.addListener((details) => {
-  let url = details.url.replace('http://', '')
-  let name = url.substring(0, url.length - 1)
+
+  // Get subdomains, domain and top level domain (removing 'http://' and trailing '/')
+  let name = details.url.substring(7, details.url.length - 1)
+
+  // Get selected tab
   chrome.tabs.getSelected(null, (tab) => {
+
+    // Update tab url temporarily with IPFS Gateway base url (to prevent search redirect)
     chrome.tabs.update(tab.id, {url: "https://gateway.ipfs.io"})
-    resolver.resolve(name)
-    .then((ipfsHash) => {
+
+    // Resolve name to IPFS hash
+    resolver.resolve(name).then((ipfsHash) => {
+
+      // Redirect to IPFS hash content on IPFS gateway
       console.log("IPFS hash for " + name + ": " + ipfsHash)
       chrome.tabs.update(tab.id, {url: "https://gateway.ipfs.io/ipfs/" + ipfsHash})
     })
+    .catch((err) => {
+      var nameWithoutTld = name.substring(0, name.lastIndexOf('.'))
+      chrome.tabs.update(tab.id, {url: "https://registrar.ens.domains/#" + nameWithoutTld})
+      setTimeout(() => {
+        alert("Could not resolve content for " + name)
+      }, 100)
+
+    })
+
   })
+
   return {cancel: true}
 }, {urls: ["*://*.eth/"]})

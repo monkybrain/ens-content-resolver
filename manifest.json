@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "ENS content resolver",
+  "name": "ENS Content Resolver",
   "description": "Allows user to enter .eth domain in url field and have it resolve to IPFS",
   "version": "1.0",
   "browser_action": {
