@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "ENS content resolver",
+  "description": "Allows user to enter .eth domain in url field and have it resolve to IPFS",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "img/ens.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webNavigation"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
