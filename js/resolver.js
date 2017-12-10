@@ -23,13 +23,11 @@ module.exports.resolve = function(name) {
       if (address === '0x0000000000000000000000000000000000000000') {
         reject(null)
       } else {
-        console.log(address)
         Resolver = new web3.eth.Contract(abi.resolver, address)
         return Resolver.methods.content(hash).call()
       }
     })
     .then((contentHash) => {
-      console.log("Hash: " + contentHash)
       // Remove 0x prefix
       hex = contentHash.substring(2)
       // Convert to buffer

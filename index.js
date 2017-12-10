@@ -1,1 +1,0 @@
-console.error("Error: Cannot find module '/Users/philip/Projects/monkybrain/ens-content-resolver/js/app.js' from '/Users/philip/Projects/monkybrain/ens-content-resolver'");

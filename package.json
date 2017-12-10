@@ -9,10 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "domain-name-parser": "^2.3.0",
     "eth-ens-namehash": "^2.0.8",
     "multihashes": "^0.4.12",
-    "query-string": "^5.0.1",
     "web3": "^1.0.0-beta.26"
   }
 }
