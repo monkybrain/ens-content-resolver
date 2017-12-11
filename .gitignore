@@ -1,1 +1,4 @@
 node_modules/
+dist.crx
+dist.pem
+dist.zip

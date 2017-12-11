@@ -1,17 +1,17 @@
 {
   "manifest_version": 2,
   "name": "ENS Content Resolver",
-  "description": "Allows user to enter .eth domain in url field and have it resolve to IPFS",
-  "version": "1.0",
+  "description": "Resolves any .eth address that has an IPFS hash registered as content and redirects your browser to the content.",
+  "version": "0.0.1",
   "browser_action": {
-    "default_icon": "res/ens.png",
+    "default_icon": "res/ens_512x512.png",
     "default_popup": "popup.html"
   },
   "background": {
     "scripts": ["js/background.js"]
   },
   "icons": {
-    "512": "res/ens.png"
+    "512": "res/ens_512x512.png"
   },
   "permissions": [
     "activeTab",
