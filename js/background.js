@@ -1,4 +1,3 @@
-const Web3 = require('web3')
 const resolver = require('./resolver.js')
 
 // On *.eth entered into search bar
