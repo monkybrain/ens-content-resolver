@@ -3,19 +3,6 @@ body {
   font-size: 16px;
 }
 
-#div-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 256px;
-  text-align: center;
-}
-
-#logo {
-  width: 100%;
-}
-
 #text {
   position: absolute;
   top: 50%;

@@ -5,10 +5,10 @@
   "version": "1.0",
   "browser_action": {
     "default_icon": "res/ens.png",
-    "default_popup": "dist/popup.html"
+    "default_popup": "popup.html"
   },
   "background": {
-    "scripts": ["dist/js/background.js"]
+    "scripts": ["js/background.js"]
   },
   "icons": {
     "512": "res/ens.png"
@@ -21,7 +21,6 @@
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "web_accessible_resources": [
-    "res/*",
-    "dist/*"
+    "*"
   ]
 }
