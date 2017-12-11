@@ -10,7 +10,7 @@ chrome.webRequest.onBeforeRequest.addListener((details) => {
   chrome.tabs.getSelected(null, (tab) => {
 
     // Update tab url temporarily with IPFS Gateway base url (to prevent search redirect)
-    chrome.tabs.update(tab.id, {url: "https://gateway.ipfs.io"})
+    chrome.tabs.update(tab.id, {url: "dist/loading.html"})
 
     // Resolve name to IPFS hash
     resolver.resolve(name).then((ipfsHash) => {
@@ -21,10 +21,7 @@ chrome.webRequest.onBeforeRequest.addListener((details) => {
     })
     .catch((err) => {
       var nameWithoutTld = name.substring(0, name.lastIndexOf('.'))
-      chrome.tabs.update(tab.id, {url: "https://registrar.ens.domains/#" + nameWithoutTld})
-      setTimeout(() => {
-        alert("Could not resolve content for " + name)
-      }, 100)
+      chrome.tabs.update(tab.id, {url: "dist/error.html?name=" + name})
 
     })
 

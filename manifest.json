@@ -4,11 +4,14 @@
   "description": "Allows user to enter .eth domain in url field and have it resolve to IPFS",
   "version": "1.0",
   "browser_action": {
-    "default_icon": "img/ens.png",
-    "default_popup": "popup.html"
+    "default_icon": "res/ens.png",
+    "default_popup": "dist/popup.html"
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["dist/js/background.js"]
+  },
+  "icons": {
+    "512": "res/ens.png"
   },
   "permissions": [
     "activeTab",
@@ -16,5 +19,9 @@
     "webRequest",
     "*://*.eth/"
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "web_accessible_resources": [
+    "res/*",
+    "dist/*"
+  ]
 }

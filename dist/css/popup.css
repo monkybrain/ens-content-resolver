@@ -1,0 +1,19 @@
+body {
+  width: 300px;
+  padding: 10px;
+  font-family: 'Rokkitt', sans-serif;
+  font-size: 16px;
+}
+
+em {
+  color: #e60000;
+  font-style: normal;
+}
+
+a {
+  color: #e60000;
+}
+
+a:focus {
+  outline: none;
+}
