@@ -3,7 +3,7 @@
 Chrome extension that resolves any `.eth` address that has an IPFS hash registered
 as content and redirects your browser to the content.
 
-Install it via [Chrome Web Store]() or build it from source by selecting `dist`
+Install it via [Chrome Web Store](https://chrome.google.com/webstore/detail/ens-content-resolver/ifgfopmoihnnicfgcpafgibiinfkodjf?hl=en) or build it from source by selecting `dist`
 as package root folder.
 
 Currently only works with Infura and IPFS Gateway. Support for local Ethereum
