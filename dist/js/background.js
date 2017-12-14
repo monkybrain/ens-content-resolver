@@ -38215,13 +38215,15 @@ chrome.webRequest.onBeforeRequest.addListener((details) => {
 
       // Check if local IPFS node is running
       let url = "http://localhost:8080/ipfs/" + ipfsHash
-      fetch(url, {method: "HEAD"})
+      return fetch(url, {method: "HEAD"})
       .then((response) => response.status)
 
       // If local node running, serve via local gateway
       .then((statusCode) => {
-        console.log("Serving content from local IPFS gateway")
-        chrome.tabs.update(tab.id, {url: url})
+        if (statusCode === 200) {
+          console.log("Serving content from local IPFS gateway")
+          chrome.tabs.update(tab.id, {url: url})
+        }
       })
 
       // Else serve via public gatewat
