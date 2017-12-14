@@ -17,7 +17,25 @@ chrome.webRequest.onBeforeRequest.addListener((details) => {
 
       // Redirect to IPFS hash content on IPFS gateway
       console.log("IPFS hash for " + name + ": " + ipfsHash)
-      chrome.tabs.update(tab.id, {url: "https://gateway.ipfs.io/ipfs/" + ipfsHash})
+
+      // Check if local IPFS node is running
+      let url = "http://localhost:8080/ipfs/" + ipfsHash
+      fetch(url, {method: "HEAD"})
+      .then((response) => response.status)
+
+      // If local node running, serve via local gateway
+      .then((statusCode) => {
+        console.log("Serving content from local IPFS gateway")
+        chrome.tabs.update(tab.id, {url: url})
+      })
+
+      // Else serve via public gatewat
+      .catch((err) => {
+        console.log("Serving content from public IPFS gateway")
+        url = "https://gateway.ipfs.io/ipfs/" + ipfsHash
+        chrome.tabs.update(tab.id, {url: url})
+      })
+
     })
     .catch((err) => {
       var nameWithoutTld = name.substring(0, name.lastIndexOf('.'))
