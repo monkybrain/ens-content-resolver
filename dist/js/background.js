@@ -38198,6 +38198,8 @@ const resolver = require('./resolver.js')
 // On *.eth entered into search bar
 chrome.webRequest.onBeforeRequest.addListener((details) => {
 
+  console.log(details.url)
+
   // Get subdomains, domain and top level domain (removing 'http://' and trailing '/')
   let name = details.url.substring(7, details.url.length - 1)
 

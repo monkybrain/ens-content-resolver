@@ -11,4 +11,4 @@ Currently only works with Infura and IPFS Gateway. Support for local Ethereum
 
 Try it out by entering e.g. [monkybrain.eth](http://monkybrain.eth) in your browser's address bar (after you have installed the extension).
 
-[![Video demo](https://img.youtube.com/vi/k8HKWW2msiU/0.jpg)](https://www.youtube.com/watch?v=k8HKWW2msiU)
+[![Video demo](https://img.youtube.com/vi/9YbWr4ouiPw/0.jpg)](https://www.youtube.com/watch?v=9YbWr4ouiPw)
