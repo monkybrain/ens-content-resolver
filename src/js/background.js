@@ -9,7 +9,7 @@ chrome.webRequest.onBeforeRequest.addListener((details) => {
   // Get selected tab
   chrome.tabs.getSelected(null, (tab) => {
 
-    // Update tab url temporarily with IPFS Gateway base url (to prevent search redirect)
+    // Update tab url temporarily with loading page (to prevent search redirect)
     chrome.tabs.update(tab.id, {url: "loading.html"})
 
     // Resolve name to IPFS hash
