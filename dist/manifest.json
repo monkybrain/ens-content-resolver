@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "ENS Content Resolver",
-  "description": "Resolves any .eth address that has an IPFS hash registered as content and redirects your browser to the content.",
-  "version": "0.0.1",
+  "description": "Resolves ENS domains (.eth) to IPFS hashes and redirects your browser to the content.",
+  "version": "0.1.0",
   "browser_action": {
     "default_icon": "res/ens_512x512.png",
     "default_popup": "popup.html"

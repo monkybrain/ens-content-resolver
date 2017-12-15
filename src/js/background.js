@@ -29,16 +29,19 @@ chrome.webRequest.onBeforeRequest.addListener((details) => {
           console.log("Serving content from local IPFS gateway")
           chrome.tabs.update(tab.id, {url: url})
         }
+        return "Local"
       })
 
       // Else serve via public gatewat
       .catch((err) => {
-        console.log("Serving content from public IPFS gateway")
+        console.log("Could not find local IPFS gateway so serving content from public IPFS gateway instead")
         url = "https://gateway.ipfs.io/ipfs/" + ipfsHash
         chrome.tabs.update(tab.id, {url: url})
+        return err
       })
 
     })
+
     .catch((err) => {
       var nameWithoutTld = name.substring(0, name.lastIndexOf('.'))
       chrome.tabs.update(tab.id, {url: "error.html?name=" + name})

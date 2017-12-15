@@ -16,17 +16,40 @@
 
 <h3>ENS Content Resolver</h3>
 
-<p>This extensions resolves any .eth address that has an IPFS hash registered as
-  content and redirects your browser to the content.</p>
+<p>This extensions resolves ENS domains (.eth) to IPFS hashes and redirects
+  your browser to the content.
+</p>
 
-<p>Try it out by entering e.g. <a href="http://monkybrain.eth" target="_blank">monkybrain.eth</a> in your browser's address bar.</p>
+<p>Try it out by entering e.g.
+  <a href="http://monkybrain.eth" target="_blank">monkybrain.eth</a> in your
+  browser's address bar.
+</p>
 
-<p>Currently only works with Infura and IPFS gateway. Support for local Ethereum
-  and IPFS nodes will arrive in the next release, as will support for Swarm.</p>
-<p>You can find the repo for this project
-  <a href="https://github.com/monkybrain/ens-content-resolver" target="_blank">here</a>.</p>
+<p>It first tries to serve the content through your local IPFS gateway (localhost:8080).
+  If you don't have a node running locally, it will use the public gateway
+  (gateway.ipfs.io) instead.
+</p>
+
+<p>Currently it only supports <a href="https://infura.io/" target="_blank">Infura</a>
+  for connecting to the Ethereum network. Support for local Ethereum nodes will
+  hopefully arrive soon. As will support for
+  <a href="https://ethersphere.github.io/swarm-home/" target="_blank">Swarm</a>.
+</p>
+
+<p>If you like this project, please star it on
+  <a href="https://github.com/monkybrain/ens-content-resolver" target="_blank">Github</a>.
+  If you'd like to contribute, even better!
+</p>
 
 <p>Feedback of any kind would be much appreciated (<a href="mailto:philip.prophet@gmail.com">philip.prophet@gmail.com</a>)</p>
+
+<p>P.S. If you need help storing IPFS hashes with your ENS domain, I have written a
+  service for that called
+  <a href="https://monkybrain.github.io/ipfs-to-ens/" target="_blank">ipfs-to-ens</a>.
+</p>
+
+
+<p>Version: 0.1</p>
 
 </body>
 
